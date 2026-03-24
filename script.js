@@ -59,8 +59,7 @@ document.getElementById("add_note_btn").addEventListener("click", async () => {
         return;
     }
 
-    clearInput()
-
+    
     try {
         await addDoc(collection(db, "notes"), {
             title,
@@ -68,6 +67,8 @@ document.getElementById("add_note_btn").addEventListener("click", async () => {
             summary,
             createdAt: serverTimestamp() // 比較準的時間
         });
+
+        clearInput()
 
     } catch (error) {
         console.error("新增失敗:", error);
@@ -85,7 +86,6 @@ function openDetailPanel(id, data) { // 提供頁面格式 載入資料進來
 
     const overlay = document.getElementById("overlay");
     overlay.classList.add("open");
-
 
     const panel = document.getElementById("detail_panel");
     panel.classList.add("open"); // 加入 open 類別 才會彈出來
@@ -130,7 +130,7 @@ function openDetailPanel(id, data) { // 提供頁面格式 載入資料進來
             msg.classList.add("chat-message");
             msg.textContent = chat.text;
 
-            // ⭐ 右鍵事件
+            // 右鍵事件
             msg.addEventListener("contextmenu", async (e) => {
                     e.preventDefault(); // 阻止預設右鍵選單
 
@@ -169,13 +169,13 @@ document.getElementById("send_chat_btn").addEventListener("click", async () => {
         return;
     }
 
-    input.value = "";
-
     try {
         await addDoc(collection(db, "notes", noteId, "chats"), {
             text,
             createdAt: serverTimestamp()
         });
+
+        input.value = "";
 
     } catch (error) {
         console.error("聊天新增失敗:", error);
