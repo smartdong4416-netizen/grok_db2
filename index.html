@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Grok Database</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>聊天紀錄</h1>
+
+<div id="input_area" class="input-area">
+  <input id="input_title" placeholder="標題"><br><br>
+  <input id="input_category" placeholder="類別"><br><br>
+  <input id="input_summary" placeholder="摘要"><br><br>
+  <button id="add_note_btn">新增紀錄</button>
+  <button id="clear_btn">清空欄位</button>
+</div>
+
+<hr>
+
+<h2>聊天紀錄列表</h2>
+<div id="note_list"></div>
+
+<div id="overlay" class="overlay">
+  <div id="detail_panel" class="panel">
+    <div class="panel-content">
+
+      <h2>詳細聊天紀錄</h2>
+
+      <label>標題</label>
+      <input id="detail_title"><br><br>
+      <label>類別</label>
+      <input id="detail_category"><br><br>
+      <label>摘要</label>
+      <input id="detail_summary"><br><br>
+      
+      <button id="save_btn">儲存修改</button>
+      <button id="close_btn">關閉</button>
+
+    </div>
+
+    <hr>
+
+    <h3>聊天內容</h3>
+    <div id="chat_list" class="chat-list"></div>
+
+      <div class="chat-input-area">
+        <input id="chat_input" placeholder="輸入訊息...">
+        <button id="send_chat_btn">送出</button>
+      </div>
+    </div>
+</div>
+
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

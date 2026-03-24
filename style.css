@@ -1,0 +1,156 @@
+body { 
+    background:#f5f7fb;
+    font-family:"Microsoft JhengHei",sans-serif;
+}
+
+input {
+  width: 500px;
+  padding: 12px 16px;
+  margin: 0px 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+ 
+button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.note {
+  position: relative;
+  width: 500px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #ddd;
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+
+  white-space: pre-line;
+  word-break: break-word;     /* 防止數字爆出欄位 */
+  overflow-wrap: break-word;  
+}
+
+/* 詳細聊天紀錄 */
+.panel {
+  position: fixed; /* 固定在右半邊 */
+  top: 0;
+  right: -800px; /* 預設藏起來 */
+  width: 600px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1); /* 陰影 */
+  padding: 10px;
+  transition: right 0.5s ease;
+  z-index: 1000;
+}
+
+.panel.open { /* 有 open 類別的 panel */
+  right:  0; /* 滑出來 */
+}
+
+.panel-content {
+  height: 300px;
+}
+
+/* 聊天室 */
+.chat-list {
+  height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fafafa;
+  border-radius: 10px;
+}
+
+
+
+.chat-message {
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #2575fc;
+  color: white;
+  border-radius: 10px;
+
+  max-width: 80%;           /* ⭐ 最長不超過 80% */
+  width: fit-content;       /* ⭐ 關鍵：貼內容寬度 */
+
+  word-break: break-word;
+
+  white-space: pre-wrap;   /* 維持原本文字 不縮排 */
+}
+
+
+.chat-input-area {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input-area input {
+  flex: 1;
+}
+
+
+
+/* 刪除按鈕 */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+
+  background: #ff4d4f; /* 紅色 */
+  color: white;
+
+  border: none;
+  border-radius: 25%;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* hover 效果 */
+.delete-btn:hover {
+  background: #d9363e;
+  transform: scale(1.1);
+}
+
+/* 點擊效果 */
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+
+/* 遮罩 */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* 半透明背景 */
+  display: none;
+}
+
+.overlay.open {
+  display: block;
+}
+
